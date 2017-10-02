@@ -1,1 +1,4 @@
-<button class="getCLass()">{{ buttontext }}></button>
+<button *ngIf="!warningButton; else errortemplate" [class]="getClass()" [attr.aria-label]="buttontext" >{{ buttontext }}</button>
+<ng-template #errortemplate>
+		<button aet-tooltip [class]="getClass()">{{ buttontext }}</button>
+</ng-template>

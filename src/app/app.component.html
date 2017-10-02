@@ -1,4 +1,23 @@
-<div class="header">AET components</div>
-<div class="title">Buttons</div>
-<aet-button></aet-button>
-
+<h1 class="header">Buttons</h1>
+<div class="section-body">
+	<div class="section-row">
+		<div class="section-col">
+			<aet-button [buttontype]="'primary'" buttontext="Primary Button" [theme]="theme"></aet-button>
+		</div>
+		<div class="section-col">
+			<aet-button [buttontype]="'secondary'" buttontext="Secondary Button" [theme]="theme"></aet-button>
+		</div>
+		<div class="section-col">
+			<aet-button [buttontype]="'text'" buttontext="Text Button" [theme]="theme"></aet-button>
+		</div>
+		<div class="section-col">
+			<aet-button [buttontype]="'warning'" buttontext="Warning Button" [theme]="theme"></aet-button>
+		</div>
+	</div>
+</div>
+<h1 class="header">Buttons</h1>
+<div class="section-body">
+	<div class="section-row">
+		<aet-card [content]="'This is some card content'" [header]="'This is a header'" [buttons]="true" [theme]="theme"></aet-card>
+	</div>
+</div>

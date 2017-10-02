@@ -1,0 +1,30 @@
+.header {
+    display: block;
+    padding: 20px 10px;
+    margin: 0 0 15px 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,.8);
+    background-image: linear-gradient( 135deg, #FF2C91 10%, #DD1369 100%);
+
+    color: #FFF;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: lighter;    
+}
+
+.title {
+    display: block;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #444;
+    margin-bottom: 10px;
+}
+
+.section-body {
+    margin: 0;
+    padding: 20px;
+}
+
+.section-row {
+    display: flex;
+    justify-content: space-between; 
+}

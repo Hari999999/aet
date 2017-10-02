@@ -1,0 +1,8 @@
+<div [class]="mainClass">
+	<div [class]="headerClass">{{ settings.header }}</div>
+	<div [class]="contentClass">{{ settings.content }}</div>
+	<div [class]="buttonsClass" *ngIf="buttons">
+		<aet-button buttontype="primary" [theme]="settings.theme" (click)="clicked('primary')" [buttontext]="settings.button1"></aet-button>
+		<aet-button buttontype="text" [theme]="settings.theme" (click)="clicked('primary')" [buttontext]="settings.button2"></aet-button>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+// Imports
+@import url('https://fonts.googleapis.com/css?family=Bungee+Hairline|Iceland|Open+Sans');
+
+
+// Variables
+
+// Basic theme
+$basic-primary      	: #32AAFF;
+$basic-secondary    	: #2262E8;
+$basic-highlight    	: #59BAFF;
+$basic-light        	: #25FFE5;
+$basic-bright			: #EBFFFB;
+$basic-dark         	: #2532FF;
+$basic-offwhite			: #EEE;
+$basic-offblack			: #333;
+$basic-alert			: #FE682C;
+$basic-alert-highlight	: #FF0A00;
+$basic-alert-bright		: #FF8383;
+
+// High-Contrast theme
+$hc-primary		: #000;
+$hc-secondary	: #AAA;
+$hc-highlight	: #FFF;
+$hc-light		: #25FFE5;
+$hc-bright		: #EBFFFB;
+$hc-dark		: #000;
+$hc-warning		: #FF2F12;
+
+// Tron theme
+$tron-surface	: #222;
+$tron-good		: #EEF;
+$tron-good-tr	: rgba(238, 238, 255,.8);
+$tron-good-glow	: #9B9BFF;
+$tron-bad		: #FFCFB3;
+$tron-bad-glow	: #FFB080;

@@ -1,0 +1,7 @@
+<div class="container">
+	<div *ngIf="label">{{ label }}</div>
+	<input [type]="getType()" [class]="getClass()">
+</div>
+<div *ngIf="inputtype === switch">
+	<input type="checkbox">
+</div>

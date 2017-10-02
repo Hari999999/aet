@@ -1,8 +1,500 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+// All CSS is structured with the box model in mind.
+// The element is built from the inside out, then content styling is defined, and finally interactions and transforms are applied.
 
+// Table of Contents : Highlight and search to jump to the button type.
+
+// _Primary
+// _Secondary
+// _Text
+// _Warning
+// _Loading
+// _Error
+
+
+// Imports
+@import "../global-styles";
+
+// Variables
+$basic-padding : 5px 10px;
+
+// _Primary
 .primary {
-	padding: 5px;
-	background-color: blue;
-	font-family: 'open sans condensed', sans-serif;
-	color: #FFF;
+	// Container
+	padding:		$basic-padding;
+	border-radius:	3px;
+
+	// Content
+	font-family:	'open sans', sans-serif;
+	font-size:		16px;
+	font-style:		light;
+	white-space: 	nowrap;
+
+	// Interactions and Tranforms
+	cursor:	pointer;
+
+
+	&.basic {
+		// Container
+		border:				none;
+		background-color:	$basic-primary;
+		box-shadow:			1px 1px 4px rgba(0,0,0,.2);
+
+		// Content
+		color:	#FFF;
+
+		// Interactions and Transforms
+		//outline:					none;
+		transition:					box-shadow, background-color, border-color, transform;
+		transition-duration:		.3s, .3s, .3s, 1s;
+		transition-timing-function: cubic-bezier(0.070, 0.800, 1.000);
+		transform:					scale(1);
+
+		&:hover {
+			background-color:	$basic-highlight;
+		}
+	
+		&:active {
+			box-shadow:			0px 0px 2px rgba(0,0,0,.3);
+			transform: 			scale(0.95);
+		}
+	}
+
+	&.hc {
+		// Container
+		border-style:		solid;
+		border-width:		1px;
+		border-color:		$hc-primary;
+		background-color:	$hc-primary;
+		box-shadow:			1px 1px 4px rgba(0,0,0,.2);
+
+		// Content
+		color:	#FFF;
+
+		// Interactions and Transforms
+		outline:					none;
+		transition:					box-shadow, background-color, border-color, transform;
+		transition-duration:		.3s, .3s, .3s, 1s;
+		transition-timing-function: cubic-bezier(0.070, 0.800, 1.000);
+		transform:					scale(1);
+		
+		&:hover {
+			background-color:	$hc-highlight;
+			color:				$hc-primary;
+		}
+	
+		&:active {
+			box-shadow:			0px 0px 2px rgba(0,0,0,.3);
+			background-color:	$hc-bright;
+			transform: 			scale(0.95);
+		}
+	}
+
+	&.tron {
+		// Container
+		position:			relative;
+		padding:			15px 20px;
+		border:				none;
+		background-image:	linear-gradient( 135deg, #040404 20%, #363636 21%, #1C1C1C 37%, #363636 55%, #040404 56%);
+		background-position: -20px;
+		box-shadow:			0 0 5px $tron-good;
+
+		// Content
+		font-family:	'Bungee Hairline', Arial, Helvetica, sans-serif;
+		font-weight:	bold;
+		color:			$tron-good;
+		text-shadow:	0 0 2px $tron-good-glow;
+
+		// Interactions and Tranforms
+		outline:					none;		
+		transition:					box-shadow, background-color, border-color, background-position, transform;
+		transition-duration:		.3s, .3s, .3s, 1s;
+		transition-timing-function: cubic-bezier(0.070, 0.800, 0.430, 1.000);
+		transform:					scale(1);
+
+		&::before {
+			content:		"";
+			display:		block;
+			position:		absolute;
+			top:			5px;
+			bottom:			5px;
+			left:			5px;
+			right:			5px;
+			border:			solid 2px $tron-good;
+			border-radius:	2px;
+			box-shadow:		0 0 8px $tron-good-glow, inset 0 0 8px $tron-good-glow;
+
+			transition:		box-shadow .3s ease, opacity .2s ease;
+			opacity: .5;			
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			width: 200%;
+			height: 200%;
+		}
+
+		&:hover {
+			box-shadow:				0 0 10px $tron-good;
+			background-position:	120px;			
+		}
+
+		&:hover::before {
+			box-shadow: 0 0 15px $tron-good-glow, inset 0 0 15px $tron-good-glow;
+			opacity:	1;
+		}
+
+		&:active {
+			box-shadow:	0 0 20px $tron-good;
+			transform: scale(0.95);
+		}
+
+		&:active::before {
+			box-shadow: 0 0 25px $tron-good-glow, inset 0 0 25px $tron-good-glow;
+		}		
+	}
+}
+
+// _Secondary
+.secondary {
+	// Container
+	padding:		$basic-padding;
+	border:			solid 1px;
+	border-radius:	3px;
+
+	// Content
+	font-family:	'open sans', sans-serif;
+	font-size:		16px;
+	font-weight:	200;
+	white-space: 	nowrap;
+
+	// Interactions and Tranforms
+	transition:		box-shadow .1s ease, background-color .3s ease, border-color .3s ease, color .3s ease, color .3s ease;
+	cursor:			pointer;
+
+
+	&.basic {
+		border-color:		$basic-primary;
+		background-color:	transparent;
+		box-shadow:			1px 1px 4px rgba(0,0,0,.2);
+
+		color:	#333;
+
+		&:hover {
+			background-color:	$basic-primary;
+			color:				#FFF;
+		}
+	
+		&:active {
+			box-shadow:			0px 0px 2px rgba(0,0,0,.3);
+			background-color:	$basic-highlight;
+		}		
+	}
+
+	&.hc {
+		// Container
+		border-color:		$hc-dark;
+		background-color:	transparent;
+		box-shadow:			1px 1px 4px rgba(0,0,0,.2);
+
+		// Content
+		color:	#000;
+
+		&:hover {
+			border-color:		$hc-dark;
+			background-color:	$hc-dark;
+			color:				#FFF;
+		}
+	
+		&:active {
+			box-shadow:			0px 0px 2px rgba(0,0,0,.3);
+			background-color:	$hc-bright;
+		}
+	}
+
+	&.tron {
+		// Container
+		position:	relative;
+		padding:	12px 16px;
+		border:		3px solid $tron-surface;
+		box-shadow:	0 0 5px $tron-good;
+		outline:	none;
+		background-image:	linear-gradient( 135deg, #040404 20%, #363636 21%, #1C1C1C 37%, #363636 55%, #040404 56%);
+
+		// Content
+		font-family:	'Bungee Hairline', Arial, Helvetica, sans-serif;
+		font-weight:	bold;
+		color:			$tron-good;
+		text-shadow:	0 0 2px $tron-good-glow;
+
+		// Interactions and Tranforms
+		transition:					box-shadow, background-image, border-image, background-position, transform;
+		transition-duration:		.3s, .3s, .3s, 1s, .3s;
+		transition-timing-function: cubic-bezier(0.070, 0.800, 0.430, 1.000);
+		transform:					scale(1);
+		
+		&::after {
+			content:	"";
+			display:	block;
+			width:		200%;
+			height:		200%;
+		}
+
+		&:hover {
+			background-color: $tron-good;
+			box-shadow:				0 0 10px $tron-good;
+			background-position:	120px;
+			
+		}
+
+		&:active {
+			background-color: #FFF;
+			box-shadow:	0 0 20px $tron-good;
+			transform:	scale(0.95);
+		}	
+	}
+}
+
+// _Text
+.text {
+	// Container
+	padding:		$basic-padding;
+	border:			solid 1px transparent;
+	border-radius:	3px;
+
+	// Content
+	font-family:	'open sans', sans-serif;
+	font-size:		16px;
+	font-weight:	200;
+	white-space: 	nowrap;
+
+	// Interactions and Tranforms
+	transition:		box-shadow .1s ease, background-color .3s ease, color .3s ease;
+	cursor:			pointer;
+
+
+	&.basic {
+		background-color:	transparent;
+		box-shadow:			1px 1px 4px rgba(0,0,0,0);
+
+		color:	$basic-offblack;
+
+		&:hover {
+			background-color:	$basic-offwhite;
+		}
+	
+		&:active {
+			box-shadow: 0px 0px 2px rgba(0,0,0,.3);
+		}
+	}
+
+	&.hc {
+		background-color:	transparent;
+
+		color:	#000;
+
+		&:hover {
+			background-color:	$hc-dark;
+			color:				#FFF;
+		}
+	
+		&:active {
+			box-shadow:			0px 0px 2px rgba(0,0,0,.3);
+			background-color:	$hc-bright;
+		}
+	}
+
+	&.tron {
+		// Container
+		position:			relative;
+		padding:			12px 16px;
+		border:				solid 3px transparent;
+		box-shadow:			0 0 0 $tron-good-glow;
+		background:			transparent;
+		outline:			none;
+
+		// Content
+		font-family:	'Bungee Hairline', Arial, Helvetica, sans-serif;
+		font-weight:	600;
+		color:			$tron-good;
+		text-shadow:	0 0 2px $tron-good-glow;
+
+		// Interactions and Tranforms
+		transition:					box-shadow, background-color, border-color, transform, color;
+		transition-duration:		.3s, .3s, .3s, .3s, .3s;
+		transition-timing-function: cubic-bezier(0.070, 0.800, 0.430, 1.000);
+
+		&:hover {
+			box-shadow:	0 0 10px $tron-good-glow;
+			background-color:			$tron-good;
+			color: $tron-surface;
+		}
+
+		&:active {
+			box-shadow:	0 0 20px $tron-good;
+			transform: scale(0.95);
+		}	
+	}
+
+}
+
+// _Warning
+.warning {
+	// Container
+	padding:		$basic-padding;
+	border-radius:	3px;
+
+	// Content
+	font-family:	'open sans', sans-serif;
+	font-size:		16px;
+	font-style:		light;
+	white-space: 	nowrap;
+
+	// Interactions and Tranforms
+	transition:					box-shadow, background-color, border-color, color;
+	transition-duration:		.3s;
+	transition-timing-function: ease;
+	cursor:	pointer;
+
+
+	&.basic {
+		// Container
+		border:				none;
+		background-color:	$basic-alert;
+		box-shadow:			1px 1px 4px rgba(0,0,0,.2);
+
+		// Content
+		color:	#FFF;
+
+		&:hover {
+			background-color:	$basic-alert-highlight;
+		}
+	
+		&:active {
+			box-shadow:			0px 0px 2px rgba(0,0,0,.3);
+			background-color:	$basic-alert-bright;
+		}
+	}
+
+	&.hc {
+		// Container
+		border-style:		solid;
+		border-width:		1px;
+		border-color:		$hc-primary;
+		background-color:	$hc-warning;
+		box-shadow:			1px 1px 4px rgba(0,0,0,.2);
+
+		// Content
+		color:	#FFF;
+
+		&:hover {
+			background-color:	$hc-highlight;
+			color:				$hc-primary;
+		}
+	
+		&:active {
+			box-shadow:			0px 0px 2px rgba(0,0,0,.3);
+			background-color:	$hc-bright;
+		}
+	}
+
+	&.tron {
+		// Container
+		position:			relative;
+		padding:			15px 20px;
+		border:				none;
+		background-image:	linear-gradient( 135deg, #040404 20%, #363636 21%, #1C1C1C 37%, #363636 55%, #040404 56%);
+		background-position: -20px;
+		box-shadow:			0 0 5px $tron-bad;
+		outline:			none;
+
+		// Content
+		font-family:	'Bungee Hairline', Arial, Helvetica, sans-serif;
+		font-weight:	bold;
+		color:			$tron-good;
+		text-shadow:	0 0 2px $tron-bad-glow;
+
+		// Interactions and Tranforms
+		transition:					box-shadow, background-color, border-color, background-position, transform;
+		transition-duration:		.3s, .3s, .3s, 1s;
+		transition-timing-function: cubic-bezier(0.070, 0.800, 0.430, 1.000);
+		transform:					scale(1);
+
+		&::before {
+			content:		"";
+			display:		block;
+			position:		absolute;
+			top:			5px;
+			bottom:			5px;
+			left:			5px;
+			right:			5px;
+			border:			solid 2px $tron-bad;
+			border-radius:	2px;
+			box-shadow:		0 0 8px $tron-bad-glow, inset 0 0 8px $tron-bad-glow;
+
+			transition:		box-shadow .3s ease, opacity .2s ease;
+			opacity: .5;			
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			width: 200%;
+			height: 200%;
+		}
+
+		&:hover {
+			box-shadow:	0 0 10px $tron-bad;
+			background-position: 120px;			
+		}
+
+		&:hover::before {
+			box-shadow: 0 0 15px $tron-bad-glow, inset 0 0 15px $tron-bad-glow;
+			opacity:	1;
+		}
+
+		&:active {
+			box-shadow:	0 0 20px $tron-good;
+			transform: scale(0.95);
+		}
+
+		&:active::before {
+			box-shadow: 0 0 25px $tron-bad-glow, inset 0 0 25px $tron-bad-glow;
+		}		
+	}
+}
+
+// _Error
+.error {
+	position:			relative;
+	padding:			10px 15px;
+	border:				orange;
+	border-radius:		3px;
+	background-image:	linear-gradient( 135deg, #FFA819 10%, #FA660E 100%);
+	color:				white;
+
+	animation: error-cycle 3s infinite;
+
+	&::before {
+		content:			"Error - See Console";
+		display:			block;
+		position:			absolute;
+		left:				50%;
+		top:				50%;
+		background-color:	rgba(255,50,50,.5);
+		transform:			translateX(-50%) translateY(-50%);
+
+	}
+}
+
+@keyframes error-cycle {
+	0% {
+		box-shadow: 0 0 5px red;
+	}
+	50% {
+		box-shadow: 0 0 25px red;
+	}
+	100% {
+		box-shadow: 0 0 5px red;		
+	}
 }
