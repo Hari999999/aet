@@ -10,7 +10,6 @@ export class AetCardComponent implements OnInit {
 	@Input() settings : Object;
 
 	// Settings must be in this format
-
 	// {
 	// 	content: string,
 	// 	header: string,
@@ -28,14 +27,11 @@ export class AetCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-	this.settings = {
-		content: "This is some content",
-		header: "This is a header",
-		buttons: true,
-		button1: "Button 1",
-		button2: "Button 2",
-		theme: "basic"
-	}
+	
+  }
+
+  private generateClasses = function () {
+	  
   }
 
 }
